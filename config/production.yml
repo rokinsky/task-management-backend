@@ -1,2 +1,5 @@
+server:
+  origin: https://some-website.com
+
 db:
   synchronize: false
