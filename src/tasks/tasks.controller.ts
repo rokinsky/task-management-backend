@@ -26,8 +26,9 @@ import { User } from '../auth/user.entity';
 @Controller('tasks')
 @UseGuards(AuthGuard())
 export class TasksController {
-  private logger = new Logger('TaskController');
-  constructor(private tasksService: TasksService) {}
+  constructor(private tasksService: TasksService, private logger: Logger) {
+    logger.setContext(TasksController.name);
+  }
 
   @Get()
   getTasks(

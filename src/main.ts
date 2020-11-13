@@ -4,7 +4,7 @@ import { Logger } from '@nestjs/common';
 import { serverConfig } from './config/server.config';
 
 async function bootstrap() {
-  const logger = new Logger('bootstrap');
+  const logger = new Logger(bootstrap.name);
   const app = await NestFactory.create(AppModule);
 
   const origin = serverConfig.origin;

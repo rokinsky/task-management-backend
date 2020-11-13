@@ -7,12 +7,13 @@ import { JwtPayload } from './jwt-payload.interface';
 
 @Injectable()
 export class AuthService {
-  private logger = new Logger('AuthService');
-
   constructor(
     @InjectRepository(UserRepository) private userRepository: UserRepository,
     private jwtService: JwtService,
-  ) {}
+    private logger: Logger,
+  ) {
+    logger.setContext(AuthService.name);
+  }
 
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     return this.userRepository.signUp(authCredentialsDto);
