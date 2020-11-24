@@ -4,9 +4,9 @@ import { TaskStatus } from '../task-status.enum';
 export class GetTasksFilterDto {
   @IsOptional()
   @IsIn([TaskStatus.OPEN, TaskStatus.IN_PROGRESS, TaskStatus.DONE])
-  status: TaskStatus;
+  readonly status: TaskStatus;
 
   @IsOptional()
   @IsNotEmpty()
-  search: string;
+  readonly search: string;
 }
